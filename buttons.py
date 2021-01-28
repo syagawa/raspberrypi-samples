@@ -18,9 +18,9 @@ def getLed(n):
         return led
 
 def getBtn(n):
-    if n == 0:
+    if n < 0:
         print("not exists")
-    elif n > 3:
+    elif n > 2:
         print("not exists")
     else:
         num = buttons[n]
