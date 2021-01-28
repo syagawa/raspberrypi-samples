@@ -42,15 +42,29 @@ allLeds(ON)
 sleep(1)
 allLeds(OFF)
 
+B1 = getBtn(0)
+L1 = getLed(0)
 
-N = 2
-button = getBtn(N)
-led = getLed(N)
+B2 = getBtn(1)
+L2 = getLed(1)
+
+B3 = getBtn(2)
+L3 = getLed(2)
 
 while True:
-    if button.is_pressed:
+    if B1.is_pressed:
         print("pressed")
-        led.on()
+        L1.on()
+        sleep(0.5)
+        led.off()
+    elif B2.is_pressed:
+        print("pressed")
+        L2.on()
+        sleep(0.5)
+        led.off()
+    elif B3.is_pressed:
+        print("pressed")
+        L3.on()
         sleep(0.5)
         led.off()
 
