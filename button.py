@@ -18,6 +18,6 @@ BTN3 = Button(20)
 
 try:
   while True:
-    if BTN1.is_pressed
+    if BTN1.is_pressed:
       LED1.on()
     sleep(0.05)
