@@ -12,8 +12,8 @@ def getLed(n):
         print("not exists")
     else:
         num = leds[n]
-        LED = LED(num)
-        return LED
+        led = LED(num)
+        return led
 
 def getBtn(n):
     if n == 0:
@@ -22,18 +22,18 @@ def getBtn(n):
         print("not exists")
     else:
         num = buttons[n]
-        BTN = Button(num)
-        return BTN
+        btn = Button(num)
+        return btn
 
 
-N = 3
-BTN = getBtn(N)
-LED = getLed(N)
+N = 2
+button = getBtn(N)
+led = getLed(N)
 
 while True:
-    if BTN.is_pressed:
+    if button.is_pressed:
         print("pressed")
-        LED.on()
+        led.on()
 
     sleep(0.05)
 
