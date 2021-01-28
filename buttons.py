@@ -56,17 +56,17 @@ while True:
         print("pressed")
         L1.on()
         sleep(0.5)
-        led.off()
+        L1.off()
     elif B2.is_pressed:
         print("pressed")
         L2.on()
         sleep(0.5)
-        led.off()
+        L2.off()
     elif B3.is_pressed:
         print("pressed")
         L3.on()
         sleep(0.5)
-        led.off()
+        L3.off()
 
     sleep(0.05)
 
