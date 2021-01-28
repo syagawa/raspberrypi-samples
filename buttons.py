@@ -34,6 +34,8 @@ while True:
     if button.is_pressed:
         print("pressed")
         led.on()
+        sleep(0.5)
+        led.off()
 
     sleep(0.05)
 
