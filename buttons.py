@@ -8,9 +8,9 @@ OFF = 0
 ON = 1
 
 def getLed(n):
-    if n == 0:
+    if n < 0:
         print("not exists")
-    elif n > 8:
+    elif n > 7:
         print("not exists")
     else:
         num = leds[n]
