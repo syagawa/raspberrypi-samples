@@ -27,21 +27,14 @@ def getBtn(n):
         btn = Button(num)
         return btn
 
-def getAllLeds():
-    arr = []
-    for i in leds:
-        led = getLed(i)
-        arr.append(led)
-    return arr
-
 def allLeds(mode):
     for i in leds:
-        ld = getLed(i)
+        ld = LED(i)
         if mode == OFF:
             ld.off()
         elif mode == ON:
             ld.on()
-
+        sleep(0.1)
 
 
 
@@ -63,5 +56,3 @@ while True:
 
     sleep(0.05)
 
-except KeyboardInterrupt:
-    allLeds(OFF)
