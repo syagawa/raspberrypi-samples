@@ -1,10 +1,10 @@
-from gpiozero import LED, Button
+from gpiozero import LED, Button, Buzzer
 from time import sleep
 import os
 
 leds = [17, 18, 27, 22, 25, 12, 13, 19]
 buttons = [21, 16, 20]
-buzser = Buzzer(26)
+buzzer = Buzzer(26)
 
 OFF = 0
 ON = 1
