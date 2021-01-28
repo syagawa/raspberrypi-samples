@@ -16,8 +16,11 @@ BTN1 = Button(21)
 BTN2 = Button(16)
 BTN3 = Button(20)
 
-try:
-  while True:
+
+while True:
     if BTN1.is_pressed:
-      LED1.on()
+        print("pressed")
+        LED1.on()
+
     sleep(0.05)
+
