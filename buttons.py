@@ -64,4 +64,4 @@ while True:
     sleep(0.05)
 
 except KeyboardInterrupt:
-    offAllLeds()
+    allLeds(OFF)
