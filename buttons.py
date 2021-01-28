@@ -4,6 +4,8 @@ import os
 
 leds = [17, 18, 27, 22, 25, 12, 13, 19]
 buttons = [21, 16, 20]
+buzser = Buzzer(26)
+
 OFF = 0
 ON = 1
 
@@ -36,11 +38,25 @@ def allLeds(mode):
             ld.on()
         sleep(0.1)
 
+def beep(times, sec):
+    for i in range(times):
+        buzzer.on()
+        sleep(sec)
+        buzzer.off()
+        sleep(sec)
+
+def beep_pi():
+    beep(1, 0.02)
+
+def beep_pi2():
+    beep(2, 0.02)
 
 
+beep_pi()
 allLeds(ON)
 sleep(1)
 allLeds(OFF)
+beep_pi2()
 
 B1 = getBtn(0)
 L1 = getLed(0)
