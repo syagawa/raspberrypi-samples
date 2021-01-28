@@ -25,6 +25,28 @@ def getBtn(n):
         btn = Button(num)
         return btn
 
+def getAllLeds():
+    arr = []
+    for i in leds:
+        led = getLed(i)
+        arr.push(led)
+    return arr
+
+def offAllLeds():
+    arr = getAllLeds()
+    for ld in arr:
+        ld.off()
+
+def onAllLeds():
+    arr = getAllLeds()
+    for ld in arr:
+        ld.on()
+
+
+onAllLeds()
+sleep(1)
+offAllLeds()
+
 
 N = 2
 button = getBtn(N)
@@ -40,3 +62,5 @@ while True:
     sleep(0.05)
 
 
+except KeyboardInterrupt:
+    offAllLeds()
