@@ -71,3 +71,4 @@ L1 = LED(17)
 
 B1.when_held = doexe
 
+pause()
