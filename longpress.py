@@ -57,14 +57,14 @@ beep_pi()
 allLeds(ON)
 sleep(1)
 allLeds(OFF)
-beep_pi2()
 
 B1 = getBtn(0)
 L1 = getLed(0)
 
-B1.hold_time(0.5)
+B1.held_time = 0.5
 
 while True:
     if B1.when_held:
+        print("longpress")
         L1.toggle()
 
