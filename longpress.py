@@ -10,35 +10,6 @@ buzzer = Buzzer(26)
 OFF = 0
 ON = 1
 
-def getLed(n):
-    if n < 0:
-        print("not exists")
-    elif n > 7:
-        print("not exists")
-    else:
-        num = leds[n]
-        led = LED(num)
-        return led
-
-def getBtn(n):
-    if n < 0:
-        print("not exists")
-    elif n > 2:
-        print("not exists")
-    else:
-        num = buttons[n]
-        btn = Button(num)
-        return btn
-
-def allLeds(mode):
-    for i in leds:
-        ld = LED(i)
-        if mode == OFF:
-            ld.off()
-        elif mode == ON:
-            ld.on()
-        sleep(0.1)
-
 def beep(times, sec):
     for i in range(times):
         buzzer.on()
@@ -58,13 +29,14 @@ allLeds(ON)
 sleep(1)
 allLeds(OFF)
 
-B1 = getBtn(0)
-L1 = getLed(0)
 
-B1.held_time = 0.5
+def doexe():
+    print("longpress")
+    L1.toggle()
 
-while True:
-    if B1.when_held:
-        print("longpress")
-        L1.toggle()
+
+B1 = Button(21, hold_time=0.5)
+L1 = LED(17)
+
+B1.when_held = doexe
 
