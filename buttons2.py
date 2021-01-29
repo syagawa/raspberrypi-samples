@@ -1,4 +1,4 @@
-from gpiozero import LED, Button, Buzzer
+from gpiozero import LED, Button, Buzzer, PWMLED
 from time import sleep
 from signal import pause
 import os
@@ -66,7 +66,7 @@ B2 = getBtn(1)
 L2 = getLed(1)
 
 B3 = getBtn(2)
-L3 = getLed(2)
+L3 = PWMLED(27)
 
 
 
@@ -75,7 +75,9 @@ B1.when_released = L1.off
 
 B2.when_pressed = L2.toggle
 
-B3.when_pressed = L3.blink
+B3.when_pressed = L3.pulse
+
+L3.value = 0.1
 
 pause()
 
