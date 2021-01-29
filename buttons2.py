@@ -1,5 +1,6 @@
 from gpiozero import LED, Button, Buzzer
 from time import sleep
+from signal import pause
 import os
 
 leds = [17, 18, 27, 22, 25, 12, 13, 19]
