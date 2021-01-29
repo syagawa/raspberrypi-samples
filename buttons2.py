@@ -73,5 +73,9 @@ L3 = getLed(2)
 B1.when_pressed = L1.on
 B1.when_released = L1.off
 
+B2.when_pressed = L2.toggle
+
+B3.when_pressed = L3.blink
+
 pause()
 
