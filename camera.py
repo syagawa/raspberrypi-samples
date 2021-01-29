@@ -71,7 +71,7 @@ def shot():
     L1.on()
     t = datetime.now().isoformat()
     beep_pi()
-    CAM.capture("/home/pi/%s.jpg" % timestamp)
+    CAM.capture("/home/pi/%s.jpg" % t)
     L1.off()
 
 B1.when_pressed = shot
