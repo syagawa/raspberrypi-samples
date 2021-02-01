@@ -56,7 +56,7 @@ def beep_pi2():
     beep(2, 0.02)
 
 
-beep_pi()
+#beep_pi()
 allLeds(ON)
 sleep(1)
 allLeds(OFF)
@@ -67,12 +67,13 @@ L1 = LED(17)
 B2 = Button(16)
 L2 = LED(18)
 CAM = PiCamera()
+CAM.resolution = (1920, 1080)
 
 def shot():
     print("shot!")
     L1.on()
     t = datetime.now().isoformat()
-    beep_pi()
+    #beep_pi()
     if os.path.exists("./images") == False:
         os.makedirs("./images")
     CAM.capture("./images/%s.jpg" % t)
