@@ -64,6 +64,8 @@ allLeds(OFF)
 
 B1 = Button(21)
 L1 = LED(17)
+B2 = Button(16)
+L2 = LED(18)
 CAM = PiCamera()
 
 def shot():
@@ -76,6 +78,20 @@ def shot():
     CAM.capture("./images/%s.jpg" % t)
     L1.off()
 
+def shots(count, interval):
+    for i in range(count):
+        shot()
+        sleep(interval)
+
+def setShots(count, interval):
+    n = count
+    i = interval
+    def f():
+        shots(n, i)
+    return f
+
 B1.when_pressed = shot
+B2.when_pressed = setShots(10, 0.5)
+
 
 pause()
