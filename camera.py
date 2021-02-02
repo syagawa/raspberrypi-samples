@@ -66,6 +66,9 @@ B1 = Button(21)
 L1 = LED(17)
 B2 = Button(16)
 L2 = LED(18)
+B3 = Button(20)
+L3 = LED(27)
+
 CAM = PiCamera()
 CAM.resolution = (1920, 1080)
 
@@ -93,6 +96,7 @@ def setShots(count, interval):
 
 B1.when_pressed = shot
 B2.when_pressed = setShots(10, 0.5)
+B3.when_pressed = setShots(1000, 30)
 
 
 pause()
