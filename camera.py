@@ -4,6 +4,7 @@ from signal import pause
 from subprocess import check_call
 from picamera import PiCamera
 from datetime import datetime
+from modules import buttons
 import os
 
 leds = [17, 18, 27, 22, 25, 12, 13, 19]
@@ -22,16 +23,6 @@ def getLed(n):
         num = leds[n]
         led = LED(num)
         return led
-
-def getBtn(n):
-    if n < 0:
-        print("not exists")
-    elif n > 2:
-        print("not exists")
-    else:
-        num = buttons[n]
-        btn = Button(num)
-        return btn
 
 def allLeds(mode):
     for i in leds:
@@ -62,11 +53,11 @@ sleep(1)
 allLeds(OFF)
 
 
-B1 = Button(21)
+B1 = buttons.getButton(1)
 L1 = LED(17)
-B2 = Button(16)
+B2 = buttons.getButton(2)
 L2 = LED(18)
-B3 = Button(20)
+B3 = buttons.getButton(3)
 L3 = LED(27)
 
 CAM = PiCamera()
