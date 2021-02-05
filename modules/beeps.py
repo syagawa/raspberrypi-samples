@@ -10,14 +10,16 @@ def beep(times, sec):
         buzzer.off()
         sleep(sec)
 
-def beep_pi():
-    beep(1, 0.02)
-
-def beep_pi2():
-    beep(2, 0.02)
 
 def pi():
-    beep_pi()
+    beep(1, 0.02)
 
 def pi2():
-    beep_pi2()
+    pi()
+    pi()
+
+def pi_small():
+    beep(1, 0.01)
+
+def pi_micro():
+    beep(1, 0.001)
