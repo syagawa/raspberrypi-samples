@@ -8,7 +8,6 @@ from modules import buttons, beeps
 import os
 
 leds = [17, 18, 27, 22, 25, 12, 13, 19]
-buzzer = Buzzer(26)
 
 OFF = 0
 ON = 1
