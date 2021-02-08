@@ -3,6 +3,9 @@ from time import sleep
 
 _leds = [17, 18, 27, 22, 25, 12, 13, 19]
 
+OFF = 0
+ON = 1
+
 def getLed(n):
     _n = n - 1
     if _n < 0:
