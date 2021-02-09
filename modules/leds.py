@@ -21,7 +21,7 @@ def all():
     a = []
     for i in _leds:
         ld = LED(i)
-        a.push(ld)
+        a.append(ld)
     return a
 
 def setOn(arr):
