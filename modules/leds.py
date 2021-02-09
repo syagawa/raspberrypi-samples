@@ -17,6 +17,17 @@ def getLed(n):
         led = LED(num)
         return led
 
+def all():
+    a = []
+    for i in _leds:
+        ld = LED(i)
+        a.push(ld)
+    return a
+
+def setOn(arr):
+    for ld in arr:
+        ld.on()
+
 def allLeds(mode):
     for i in _leds:
         ld = LED(i)

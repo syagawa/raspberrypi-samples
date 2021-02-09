@@ -25,6 +25,9 @@ L2 = leds.getLed(2)
 B3 = buttons.getButton(3)
 L3 = leds.getLed(3)
 
+allleds = leds.all()
+leds.setOn(allleds)
+
 CAM = PiCamera()
 CAM.resolution = (1920, 1080)
 
