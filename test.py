@@ -63,7 +63,7 @@ def leftMode():
         mode_index = 2
     showMode()
 
-B1.when_pressed = showMode
+B1.when_pressed = blinkMode
 B2.when_pressed = leftMode
 B3.when_pressed = rightMode
 
