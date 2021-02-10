@@ -11,11 +11,11 @@ OFF = 0
 ON = 1
 
 
-beeps.pi()
-leds.allLeds(ON)
+beeps.pi_micro()
+leds.waveFromLeft()
 sleep(1)
-leds.allLeds(OFF)
-beeps.beep(1, 0.001)
+leds.waveFromRight()
+beeps.pi_micro()
 
 
 B1 = buttons.getButton(1)
@@ -26,6 +26,5 @@ B3 = buttons.getButton(3)
 # L3 = leds.getLed(3)
 
 leds.setAllLedsOn()
-
 
 pause()
