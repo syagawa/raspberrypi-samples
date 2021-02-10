@@ -32,6 +32,10 @@ def setOff(arr):
     for ld in arr:
         ld.off()
 
+def setAllLedsOn():
+    arr = all()
+    setOn(arr)
+
 def allLeds(mode):
     for i in _leds:
         ld = LED(i)
