@@ -10,6 +10,8 @@ import os
 OFF = 0
 ON = 1
 
+modes = [1, 2, 3]
+mode_index = 0
 
 beeps.pi_micro()
 leds.waveFromLeft()
@@ -26,5 +28,61 @@ B3 = buttons.getButton(3)
 # L3 = leds.getLed(3)
 
 leds.setAllLedsOn()
+sleep(0.5)
+leds.setAllLedsOff()
+
+def showMode():
+    print(mode_index)
+
+def rightMode():
+    global mode_index
+    mode_index = mode_index + 1
+    if mode_index > 2:
+        mode_index = 0
+    for num in modes:
+        led = leds.getLed(num)
+        current = modes[mode_index]
+        if num == current:
+            led.on()
+        else:
+            led.off()
+
+def leftMode():
+    global mode_index
+    mode_index = mode_index - 1
+    if mode_index < 0:
+        mode_index = 2
+    for num in modes:
+        led = leds.getLed(num)
+        current = modes[mode_index]
+        if num == current:
+            led.on()
+        else:
+            led.off()
+
+B1.when_pressed = showMode
+B2.when_pressed = leftMode
+B3.when_pressed = rightMode
+
+
+# while True:
+#     if B1.is_pressed:
+#         print("1")
+#     if B2.is_pressed:
+#         mode_index = mode_index - 1
+#         if mode_index < 0:
+#             mode_index = 2
+#     if B3.is_pressed:
+#         mode_index = mode_index + 1
+#         if mode_index > 2:
+#             mode_index = 0
+#     for num in modes:
+#         led = leds.getLed(num)
+#         if num == mode_index:
+#             led.on()
+#         else:
+#             led.off()
+
+
 
 pause()
