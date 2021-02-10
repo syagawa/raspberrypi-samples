@@ -11,6 +11,8 @@ OFF = 0
 ON = 1
 
 modes = [1, 2, 3]
+mode_max = len(modes) - 1
+mode_min = 0
 mode_index = 0
 
 beeps.pi_micro()
@@ -33,32 +35,33 @@ leds.setAllLedsOff()
 
 def showMode():
     print(mode_index)
+    for num in modes:
+        led = leds.getLed(num)
+        current = modes[mode_index]
+        if num == current:
+            led.on()
+        else:
+            led.off()
+
+def blinkMode():
+    print(mode_index)
+    current = modes[mode_index]
+    led = leds.getLed(current)
+    led.blink(0.5, 0.1, None, True)
 
 def rightMode():
     global mode_index
     mode_index = mode_index + 1
-    if mode_index > 2:
+    if mode_index > mode_max:
         mode_index = 0
-    for num in modes:
-        led = leds.getLed(num)
-        current = modes[mode_index]
-        if num == current:
-            led.on()
-        else:
-            led.off()
+    showMode()
 
 def leftMode():
     global mode_index
     mode_index = mode_index - 1
-    if mode_index < 0:
+    if mode_index < mode_min:
         mode_index = 2
-    for num in modes:
-        led = leds.getLed(num)
-        current = modes[mode_index]
-        if num == current:
-            led.on()
-        else:
-            led.off()
+    showMode()
 
 B1.when_pressed = showMode
 B2.when_pressed = leftMode
@@ -83,6 +86,6 @@ B3.when_pressed = rightMode
 #         else:
 #             led.off()
 
-
+blinkMode()
 
 pause()
