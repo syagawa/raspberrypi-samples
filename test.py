@@ -10,8 +10,14 @@ import os
 OFF = 0
 ON = 1
 
-modes = [1, 2, 3]
-mode_max = len(modes) - 1
+modes_length = 8
+modes = []
+
+for i in range(modes_length):
+    n = i + 1
+    modes.append(n)
+
+mode_max = modes_length - 1
 mode_min = 0
 mode_index = 0
 
@@ -60,7 +66,7 @@ def leftMode():
     global mode_index
     mode_index = mode_index - 1
     if mode_index < mode_min:
-        mode_index = 2
+        mode_index = mode_max
     showMode()
 
 B1.when_pressed = blinkMode
