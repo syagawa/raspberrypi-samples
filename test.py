@@ -23,7 +23,8 @@ mode_index = 0
 
 beeps.pi_micro()
 leds.waveFromLeft()
-sleep(1)
+sleep(0.5)
+beeps.pi_micro()
 leds.waveFromRight()
 beeps.pi_micro()
 
