@@ -5,6 +5,13 @@ import time
 import serial
 
 
+TEMP = "0123456789ABCDEF*"
+BUFFER_SIZE = 1100
+
+PI = 3.14159265358979324
+X_PI = PI * 3000.0 / 180.0
+
+
 class config(obj):
   FORCE = 17
   STANDBY = 4
@@ -36,5 +43,23 @@ class config(obj):
   def set_baudrate(ser, Baudrate):
     ser.serial = serial.Serial(DEV_SERIAL, Baudrate)
 
+
+
+class gps_dev(object):
+  Longitude = 0.0
+  Latitude = 0.0
+  Lon = Longitude
+  Lat = Latitude
+  Lon_area = "E"
+  Lat_area = "W"
+  Time_H = 0
+  Time_M = 0
+  Time_S = 0
+  Status = 0
+  Lon_Google = 0
+  Lat_Google = 0
+
+  GPS_Lon = 0
+  GPS_Lat = 0
 
 
