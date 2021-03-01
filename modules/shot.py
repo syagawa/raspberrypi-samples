@@ -9,7 +9,7 @@ import os
 
 CAM = PiCamera()
 CAM.resolution = (1920, 1080)
-CAM.vflip = true
+CAM.vflip = True
 
 def shot(led):
     print("shot!")
