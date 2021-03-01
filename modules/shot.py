@@ -8,8 +8,16 @@ from modules import buttons
 import os
 
 CAM = PiCamera()
-CAM.resolution = (1920, 1080)
-CAM.vflip = True
+
+def set(upset):
+    CAM.resolution = (1920, 1080)
+    if upset:
+        CAM.vflip = True
+        CAM.hflip = True
+    else:
+        CAM.vflip = False
+        CAM.hflip = False
+
 
 def shot(led):
     print("shot!")

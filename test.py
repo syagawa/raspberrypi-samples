@@ -82,6 +82,7 @@ def leftMode():
 
 # blinkMode()
 
+shot.set(True)
 L1 = leds.getLed(1)
 B1.when_pressed = shot.setShots(1000, 15, L1)
 
