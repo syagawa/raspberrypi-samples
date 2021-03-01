@@ -4,7 +4,7 @@ from signal import pause
 from subprocess import check_call
 from picamera import PiCamera
 from datetime import datetime
-from modules import buttons, beeps, leds
+from modules import buttons, beeps, leds, shot
 import os
 
 OFF = 0
@@ -76,29 +76,13 @@ def leftMode():
     showMode()
     moveToBlinkMode()
 
-B1.when_pressed = blinkMode
-B2.when_pressed = leftMode
-B3.when_pressed = rightMode
+# B1.when_pressed = blinkMode
+# B2.when_pressed = leftMode
+# B3.when_pressed = rightMode
 
+# blinkMode()
 
-# while True:
-#     if B1.is_pressed:
-#         print("1")
-#     if B2.is_pressed:
-#         mode_index = mode_index - 1
-#         if mode_index < 0:
-#             mode_index = 2
-#     if B3.is_pressed:
-#         mode_index = mode_index + 1
-#         if mode_index > 2:
-#             mode_index = 0
-#     for num in modes:
-#         led = leds.getLed(num)
-#         if num == mode_index:
-#             led.on()
-#         else:
-#             led.off()
-
-blinkMode()
+L1 = leds.getLed(1)
+B1.when_pressed = shot.setShots(1000, 15, L1)
 
 pause()
