@@ -31,7 +31,7 @@ def shot(led, message):
 
 def shots(count, interval, led):
     for i in range(count):
-        mes = '%s / %s interavl: %s' % (i + 1, count, interavl)
+        mes = '%s / %s interavl: %s' % (i + 1, count, interval)
         shot(led, mes)
         sleep(interval)
 
