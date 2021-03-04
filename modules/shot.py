@@ -19,8 +19,8 @@ def set(upset):
         CAM.hflip = False
 
 
-def shot(led):
-    print("shot!")
+def shot(led, message):
+    print('shot! %s' % message)
     led.on()
     t = datetime.now().isoformat()
     #beep_pi()
@@ -31,7 +31,8 @@ def shot(led):
 
 def shots(count, interval, led):
     for i in range(count):
-        shot(led)
+        mes = '%s / %s interavl: %s' % (i + 1, count, interavl)
+        shot(led, mes)
         sleep(interval)
 
 def setShots(count, interval, led):

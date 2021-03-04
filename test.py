@@ -84,6 +84,12 @@ def leftMode():
 
 shot.set(True)
 L1 = leds.getLed(1)
-B1.when_pressed = shot.setShots(1000, 15, L1)
+B1.when_pressed = shot.setShots(500, 15, L1)
+
+L2 = leds.getLed(2)
+B2.when_pressed = shot.setShots(500, 30, L2)
+
+L3 = leds.getLed(3)
+B3.when_pressed = shot.setShots(500, 60, L3)
 
 pause()
