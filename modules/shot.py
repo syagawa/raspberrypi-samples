@@ -30,6 +30,10 @@ def shot(led, message):
     led.off()
 
 def shots(count, interval, led):
+    seconds = count * interval
+    minutes = seconds / 60
+    hours = minutes / 60
+    print('%s hours' % hours)
     for i in range(count):
         mes = '%s / %s interavl: %s' % (i + 1, count, interval)
         shot(led, mes)
