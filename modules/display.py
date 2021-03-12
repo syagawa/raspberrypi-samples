@@ -6,6 +6,8 @@
 import time
 import subprocess
 
+import random
+
 import board
 import digitalio
 from PIL import Image, ImageDraw, ImageFont
@@ -15,6 +17,9 @@ display_reset = digitalio.DigitalInOut(board.D4)
 
 w = 128
 h = 64
+
+white = 255
+black = 0
 
 I2C = board.I2C()
 d = adafruit_ssd1306.SSD1306_I2C(w, h, I2C, addr=0x3C, reset=display_reset)
@@ -28,7 +33,7 @@ image = Image.new("1", (d.width, d.height))
 draw = ImageDraw.Draw(image)
 
 def drawBlackRect():
-  draw.rectangle((0, 0, w, h), outline=0, fill=0)
+  draw.rectangle((0, 0, w, h), outline=0, fill=black)
 
 drawBlackRect()
 
@@ -40,12 +45,20 @@ x = 0
 
 font = ImageFont.load_default()
 
-while True:
-  drawBlackRect()
+count = 0
 
-  draw.text( (x, top), "AAAA", font=font, fill=255)
+messages = ["AAA", "BBB", "CCC"]
+m_len = len(messages)
+
+while True:
+  count = count + 1
+  drawBlackRect()
+  i = random.randint(0, m_len - 1)
+  message = "%s %s" % (messages[i], count)
+
+  draw.text( (x, top), message, font=font, fill=white)
 
   d.image(image)
   d.show()
-  time.sleep(0.1)
+  time.sleep(0.5)
   print("loop")
