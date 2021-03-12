@@ -1,38 +1,31 @@
 # sudo apt install python3-pip
 # sudo pip3 install Adafruit-Blinka
-# sudo python -m pip install --upgrade pip setuptools wheel
-# sudo pip install Adafruit-SSD1306
-# sudo raspi-config
-#  => Interface Options I2C enable
-
+# sudo pip3 install adafruit-circuitpython-ssd1306
+# sudo apt install python3-pil
 
 import time
-
-import Adafruit_GPIO.SPI as SPI
-import Adafruit_SSD1306
-
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
-
 import subprocess
 
+import board
+import digitalio
+from PIL import Image, ImageDraw, ImageFont
+import adafruit_ssd1306
 
-RST = None
-DC = 23
-SPI_PORT = 0
-SPI_DEVICE = 0
+display_reset = digitalio.DigitalInOut(board.D4)
 
-d = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
+w = 128
+h = 64
 
-d.begin()
-d.clear()
-d.display()
+I2C = board.I2C()
+d = adafruit_ssd1306.SSD1306_I2C(w, h, I2C, addr=0x3C, reset=display_reset)
 
-w = d.width
-h = d.height
-image = Image.new("1", (w, h))
-draw.ImageDraw(image)
+d.fill(0)
+
+d.show()
+
+
+image = Image.new("1", (d.width, d.height))
+draw = ImageDraw.Draw(image)
 
 def drawBlackRect():
   draw.rectangle((0, 0, w, h), outline=0, fill=0)
@@ -50,8 +43,9 @@ font = ImageFont.load_default()
 while True:
   drawBlackRect()
 
-  draw.text( (x, top), "AAAA")
+  draw.text( (x, top), "AAAA", font=font, fill=255)
 
   d.image(image)
-  d.display()
+  d.show()
   time.sleep(0.1)
+  print("loop")
