@@ -4,8 +4,9 @@ from signal import pause
 from subprocess import check_call
 from picamera import PiCamera
 from datetime import datetime
-from modules import buttons, beeps, leds, shot
+from modules import buttons, beeps, leds, shot, display
 import os
+
 
 OFF = 0
 ON = 1

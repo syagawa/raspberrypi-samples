@@ -47,30 +47,34 @@ def drawBlackRect():
 def drawWhiteRect():
   draw.rectangle((0, 0, w, h), outline=0, fill=white)
 
-def displayMessage(mes, line):
+def showMessage(mes, line):
   l = line - 1
   draw.text( (x, top + (line_height * l) ), mes, font=font, fill=white)
+  d.image(image)
+  d.show()
 
+
+def getDisplayInfo():
+  return { "columns": columns, "rows": rows }
 
 
 drawBlackRect()
 
 
-count = 0
+def test():
+  count = 0
+  messages = ["AAA", "BBB", "CCC"]
+  m_len = len(messages)
 
-messages = ["AAA", "BBB", "CCC"]
-m_len = len(messages)
+  while True:
+    count = count + 1
+    drawBlackRect()
+    i = random.randint(0, m_len - 1)
+    message = "%s %s" % (messages[i], count)
 
-while True:
-  count = count + 1
-  drawBlackRect()
-  i = random.randint(0, m_len - 1)
-  message = "%s %s" % (messages[i], count)
+    l = random.randint(1, 8)
+    showMessage(message, l)
+    time.sleep(0.5)
+    print("loop")
 
-  l = random.randint(1, 8)
-  displayMessage(message, l)
-
-  d.image(image)
-  d.show()
-  time.sleep(0.5)
-  print("loop")
+# test()

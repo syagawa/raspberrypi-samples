@@ -4,7 +4,7 @@ from signal import pause
 from subprocess import check_call
 from picamera import PiCamera
 from datetime import datetime
-from modules import buttons
+from modules import buttons, display
 import os
 
 CAM = PiCamera()
@@ -20,7 +20,9 @@ def set(upset):
 
 
 def shot(led, message):
-    print('shot! %s' % message)
+    mes = 'shot! %s' % message
+    print(mes)
+    display.showMessage(mes, 1)
     led.on()
     t = datetime.now().isoformat()
     #beep_pi()
