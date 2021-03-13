@@ -4,9 +4,9 @@ from signal import pause
 from subprocess import check_call
 from picamera import PiCamera
 from datetime import datetime
-from modules import buttons, beeps, leds, shot, display
+from modules import buttons, beeps, leds, shot, display, screen
 import os
-
+import random
 
 OFF = 0
 ON = 1
@@ -92,5 +92,12 @@ B2.when_pressed = shot.setShots(250, 60, L2)
 
 L3 = leds.getLed(3)
 B3.when_pressed = shot.setShots(125, 120, L3)
+
+
+ind = screen.makeScreen(1)
+print(ind)
+while True:
+    mes = random.randint(1,100)
+    screen.show(ind, mes)
 
 pause()
