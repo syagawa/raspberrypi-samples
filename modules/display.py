@@ -45,22 +45,29 @@ def drawBlackRect():
   one_line = h / rows
   draw.rectangle((0, 0, w, h), outline=0, fill=black)
 
-def drawBlackLine(line):
+def drawBlackLines(start, lines):
   one_line = h / rows
-  l = line - 1
-  start_y = l * one_line
-  draw.rectangle((0, start_y, w, one_line), outline=0, fill=black)
+  start_y = (start - 1 ) * one_line
+  draw.rectangle((0, start_y, w, one_line * lines), outline=0, fill=black)
 
 def drawWhiteRect(lines=line_height):
   draw.rectangle((0, 0, w, h), outline=0, fill=white)
 
 def showMessage(mes, line):
   l = line - 1
-  drawBlackLine(line)
-  # drawBlackRect()
   draw.text( (x, top + (line_height * l) ), mes, font=font, fill=white)
   d.image(image)
   d.show()
+
+def showMessages(messages, start):
+  length = len(messages)
+  for i in range(length):
+    l = start + i - 1
+    mes = messages[i]
+    draw.text( (x, top + (line_height * l) ), mes, font=font, fill=white)
+  d.image(image)
+  d.show()
+
 
 
 def getDisplayInfo():
