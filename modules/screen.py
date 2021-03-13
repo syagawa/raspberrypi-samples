@@ -37,10 +37,14 @@ def show(index, message):
   sc["matrix"].append(message)
   max = sc["length"]
   if len(sc["matrix"]) > max:
-    array_shift(sc["matrix"])
+    sc["matrix"].pop(0)
 
-  for n in range(len(sc["matrix"])):
+  size = len(sc["matrix"])
+  print(sc)
+  for n in range(size):
+    print(n)
     print(sc["matrix"][n])
-    # display.showMessage(sc["matrix"][n], n + 1)
-    display.showMessage("aaa", n + 1)
+    mes = str(sc["matrix"][n])
+    display.showMessage(mes, n + 1)
+  #  display.showMessage("aaa", n + 1)
 
