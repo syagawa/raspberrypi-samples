@@ -48,6 +48,8 @@ def drawBlackRect():
 def drawBlackLines(start, lines):
   one_line = h / rows
   start_y = (start - 1 ) * one_line
+  print(start_y)
+  print(one_line * lines)
   draw.rectangle((0, start_y, w, one_line * lines), outline=0, fill=black)
 
 def drawWhiteRect(lines=line_height):

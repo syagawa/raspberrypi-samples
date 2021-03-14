@@ -19,7 +19,13 @@ def getUsableRows():
 
 
 
-def show(index, message):
+def show():
+  display.drawBlackRect()
+
+  for sc in screens:
+    display.showMessages(sc["matrix"], sc["start"])
+
+def add(index, message):
   if index < 0:
     return
   sc = screens[index]
@@ -27,17 +33,6 @@ def show(index, message):
   max = sc["length"]
   if len(sc["matrix"]) > max:
     sc["matrix"].pop(0)
-
-  size = len(sc["matrix"])
-  print(sc)
-  display.drawBlackLines(sc["start"], sc["length"])
-  # for n in range(size):
-  #   print(n)
-  #   print(sc["matrix"][n])
-  #   mes = str(sc["matrix"][n])
-  #   display.showMessage(mes, n + 1)
-  #  display.showMessage("aaa", n + 1)
-  display.showMessages(sc["matrix"], sc["start"])
 
 def makeScreen(lines=max_rows):
   if lines > getUsableRows():
@@ -51,5 +46,5 @@ def makeScreen(lines=max_rows):
   screens.append(o)
   index = len(screens) - 1
   def f(mes):
-    show(index, mes)
+    add(index, mes)
   return f

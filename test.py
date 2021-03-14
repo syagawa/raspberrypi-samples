@@ -94,11 +94,15 @@ L3 = leds.getLed(3)
 B3.when_pressed = shot.setShots(125, 120, L3)
 
 
-screenShow = screen.makeScreen(2)
+addScreen1 = screen.makeScreen(4)
+addScreen2 = screen.makeScreen(4)
 # print(ind)
 while True:
-    mes = str(random.randint(1,1000)) + "bbbb"
-    screenShow(mes)
+    mes1 = str(random.randint(1,1000)) + "bbbb"
+    mes2 = str(random.randint(1,1000)) + "AAAA"
+    addScreen1(mes1)
+    addScreen2(mes2)
+    screen.show()
     sleep(1)
 
 pause()
